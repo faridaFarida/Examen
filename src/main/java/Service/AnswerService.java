@@ -19,7 +19,7 @@ public class AnswerService {
     private QuestionRepo questionRepo;
 
     public AnswerWrapper saveAnswer(@RequestBody AnswerWrapper answerWrapper) throws NotFoundError{
-
+        //TODO solo el profesor puede añadir respuestas
         Answers answers = new Answers();
         Optional<Questions> optionalQuestions = questionRepo.findById(answerWrapper.getQuestionId());
         if (optionalQuestions.isPresent()) {
@@ -35,6 +35,6 @@ public class AnswerService {
 
             return answerWrapper;
         }
-        else throw new NotFoundError("Question id do not exist");
+        else throw new NotFoundError("Question do not exist");
     }
 }
