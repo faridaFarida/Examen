@@ -16,13 +16,13 @@ public class StudentController {
         return ResponseEntity.ok(studentWrapper);
     }
 
-    @PostMapping(value = "/save")
+    @PostMapping(value = "/student/save")
     public ResponseEntity<StudentWrapper> saveStudent(@RequestBody StudentWrapper studentWrapper) {
         studentWrapper = studentService.saveStudent(studentWrapper);
         return ResponseEntity.ok(studentWrapper);
     }
 
-    @PutMapping(value = "/update/{id}")
+    @PutMapping(value = "/student/update/{id}")
     public ResponseEntity<StudentWrapper> updateStudent(@PathVariable StudentWrapper studentWrapper) throws NotFoundError {
         studentWrapper = studentService.updateStudentById(studentWrapper);
         return ResponseEntity.ok(studentWrapper);
